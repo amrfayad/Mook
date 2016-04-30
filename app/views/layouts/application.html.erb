@@ -7,24 +7,45 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-
-<% if user_signed_in? %>
-
-      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %><br>
-	  
-  <% else %>
-      <%= link_to "Sign In", new_user_session_path %><br>
-  
-      <%= link_to "Sign Up", new_user_registration_path %><br>
-	<% end %>
-  <%= link_to "Home", pages_home_path %><br>
-  <%= link_to "About", pages_about_path %><br>
-  <%= link_to "Contact Me", pages_contact_path %><br>
-
-	   <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
-<%= yield %>
-
+<nav class="navbar navbar-fixed-top navbar-inverse">
+      <aside class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+          <li><%= link_to "Home", pages_home_path %></li>
+                <li><%= link_to "About", pages_about_path %></li>
+                <li><%= link_to "Contact", pages_contact_path %></li>
+               <% if user_signed_in? %>
+    <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+            <% else %>
+              <li> <%= link_to "Sign In", new_user_session_path %></li>
+            
+                <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </aside>
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+     <div class="container">
+      <div class="row">
+         <div class="col-xs-9 col-lg-9">
+              <%= yield %>
+        </div>
+       </div><!--/row-->
+      <hr>
+      <footer class="navbar-fixed-bottom">
+        <p>&copy; Eng Amr Ezat.</p>
+      </footer>
+    </div>
 </body>
 </html>
