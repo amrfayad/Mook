@@ -11,23 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
+   <div class="form-group">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :content %><br>
-    <%= f.text_area :content %>
+    <%= f.cktext_area :content %>
   </div>
-  <div class="field">
+  
+  <div class="form-group">
     <%= f.label :attachfile %><br>
     <%= f.file_field :attachfile %>
   </div>
-  <div class="field">
+  
+  <div class="form-group">
     <%= f.label :course_id %><br>
     <%= f.text_field :course_id %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+    <%= f.submit "Create New Lecture"  ,class: 'btn btn-info' %>
+  
 <% end %>

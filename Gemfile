@@ -1,13 +1,16 @@
 source 'https://rubygems.org'
 
 gem 'devise'
-gem 'ckeditor', '4.0.11'
+gem 'ckeditor'
 gem 'carrierwave'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'activeadmin' ,github: 'activeadmin'
 gem 'bootstrap-sass'
 gem 'cancancan', '~> 1.10'
-
+gem 'paperclip'
+#gem 'mini_magick'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'mini_magick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
