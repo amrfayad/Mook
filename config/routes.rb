@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
   
+  resources :lectures
+  resources :courses
+  resources :courses
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'pages/index'
