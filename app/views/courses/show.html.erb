@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Title:</strong>
+  <strong>Course Title:</strong>
   <%= @course.title %>
 </p>
-
 <p>
   <strong>Img:</strong>
-  <%= image_tag(@course.img) %>
+  <%= image_tag(@course.img , size: "100x100") %>
 </p>
-
 <p>
-  <strong>User:</strong>
-  <%= @course.user %>
+  <% @lectures.each do |lecture| %>
+    <h3> Lectures </h3>
+    <h4> <%= lecture.title %> </h4>
+    
+    <article>
+          <%=  lecture.content.html_safe  %>
+    </article>
+  <% end %>
 </p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>

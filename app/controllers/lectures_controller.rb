@@ -1,5 +1,7 @@
 class LecturesController < InheritedResources::Base
 
+  
+  
   private
 
     def lecture_params
