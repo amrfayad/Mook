@@ -15,5 +15,17 @@
     <article>
           <%=  lecture.content.html_safe  %>
     </article>
+    
+    <% if user_signed_in? %>
+    <p>
+     <%= link_to "Download Lecture ", lectures_down_path(:file => lecture.attachfile.file.path),class: 'btn btn-default' %>
+    </p>
+    <%= link_to image_tag("Like.jpg" ,  size: "70x50") , like_lecture_path(lecture), method: :put %>
+    <%= lecture.get_likes.size  %>
+    <%= link_to image_tag("dislike.png" ,  size: "70x30") , dislike_lecture_path(lecture), method: :put %>
+    <%= lecture.get_dislikes.size  %>
+    <% end %>
+    <hr>
+    
   <% end %>
 </p>

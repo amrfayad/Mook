@@ -8,14 +8,19 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'pages/index'
-
+  get 'lectures/down'
   get 'pages/home'
-
   get 'pages/about'
-
   get 'pages/contact'
-
-    devise_for :users, controllers: { sessions: "users/sessions" , registrations: "users/registrations" }
+  devise_for :users, controllers: { sessions: "users/sessions" , registrations: "users/registrations" }
+  
+  resources :lectures do
+  member do
+        put "like", to: "lectures#upvote"
+        put "dislike", to: "lectures#downvote"
+    end
+  end
+  
   #devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

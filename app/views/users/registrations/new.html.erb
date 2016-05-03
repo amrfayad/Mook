@@ -27,9 +27,34 @@
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
+
+  
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+  
+  
+  <div class="field">
+    <%= f.label :'gender' %><br />
+    
+    <%= f.select(:gender) do %>
+	  		<% [['Male', 1], ['Female', 0]].each do |c| -%>
+				<%= content_tag(:option, c.first, value: c.last) %>
+	  		<% end %>
+		<% end %>
+    
+  </div>
+
+  <div class="field">
+    <%= f.label :'register As' %><br />
+    
+    <%= f.select(:is_student) do %>
+	  		<% [['Student', 1], ['Insructor', 0]].each do |c| -%>
+				<%= content_tag(:option, c.first, value: c.last) %>
+	  		<% end %>
+		<% end %>
+    
   </div>
 
   <div class="field">

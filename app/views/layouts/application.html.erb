@@ -23,15 +23,19 @@
           <li><%= link_to "Home", pages_home_path %></li>
                 <li><%= link_to "About", pages_about_path %></li>
                 <li><%= link_to "Contact", pages_contact_path %></li>
-               <% if user_signed_in? %>
-                  <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-                  <li><%= link_to "Courses" , courses_path %></li>
-            <% else %>
-              <li> <%= link_to "Sign In", new_user_session_path %></li>
+                <li><%= link_to "Courses" , courses_path %></li>
+            </ul>
             
-                <li><%= link_to "Sign Up", new_user_registration_path %></li>
-            <% end %>
-          </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <% if user_signed_in? %>
+                      <li>WelleCome <%= current_user.name %></li>
+                      <li><span><%= image_tag(current_user.img , class: 'img-responsive img-circle margin' , size:'50x50') %></span></li>
+                      <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>               
+                <% else %>
+                      <li><%= link_to "Sign In", new_user_session_path %></li>
+                      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                <% end %>
+            </ul>
         </div>
       </aside>
     </nav>
