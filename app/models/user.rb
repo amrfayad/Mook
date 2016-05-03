@@ -6,6 +6,5 @@ class User < ActiveRecord::Base
   mount_uploader :img, ImageUploader
   has_many :courses
   acts_as_voter
-  
-  
+  acts_as_commontator
 end

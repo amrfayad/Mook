@@ -1,10 +1,11 @@
 class CoursesController < InheritedResources::Base
     before_action :set_category, only: [:show, :edit, :update, :destroy]
+    
+    
     def show
       @lectures = @course.lectures
+     #commontator_thread_show(@commontable)
     end
-    
-    
     
   private
 

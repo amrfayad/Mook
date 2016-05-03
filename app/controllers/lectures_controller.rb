@@ -1,11 +1,9 @@
 class LecturesController < InheritedResources::Base
 
 
-
  def down
-    my_file = params[:file]
+    my_file = Lecture.find(params[:file]).attachfile.path
     send_file my_file
-    render "new"
  end
 
 def upvote

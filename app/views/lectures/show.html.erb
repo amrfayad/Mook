@@ -7,7 +7,7 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @lecture.content %>
+  <%= @lecture.content.safe %>
 </p>
 
 <p>
@@ -20,5 +20,7 @@
   <%= @lecture.course %>
 </p>
 
+
+  
 <%= link_to 'Edit', edit_lecture_path(@lecture) %> |
 <%= link_to 'Back', lectures_path %>

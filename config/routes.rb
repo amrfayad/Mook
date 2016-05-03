@@ -2,13 +2,19 @@ Rails.application.routes.draw do
   
   
   mount Ckeditor::Engine => '/ckeditor'
+  mount Commontator::Engine => '/commontator'
+
   resources :lectures
   resources :courses
   resources :courses
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'pages/index'
-  get 'lectures/down'
+  
+  
+  #get 'lectures/down'
+  get 'lect/:file'  => "lectures#down", as: "dowload"
+  
   get 'pages/home'
   get 'pages/about'
   get 'pages/contact'
