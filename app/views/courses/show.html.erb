@@ -7,15 +7,17 @@
   <strong>Img:</strong>
   <%= image_tag(@course.img , size: "100x100") %>
 </p>
-<p>
+<% if user_signed_in? %>
+                            <% if current_user.id == @course.user_id %>
+                                <%= link_to 'New Lecture', newlec_path(@course.id.to_s) %>
+                            <% end %>
+<% end %>
   <% @lectures.each do |lecture| %>
     <h3> Lectures </h3>
     <h4> <%= lecture.title %> </h4>
-    
     <article>
           <%=  lecture.content.html_safe  %>
     </article>
-    
     <% if user_signed_in? %>
     <p>
      <%= link_to "Download Lecture ", dowload_path(lecture.id.to_s),class: 'btn btn-default' %>
@@ -24,14 +26,9 @@
     <%= lecture.get_likes.size  %>
     <%= link_to image_tag("dislike.png" ,  size: "70x30") , dislike_lecture_path(lecture), method: :put %>
     <%= lecture.get_dislikes.size  %>
-    
     <div>    
        <%= commontator_thread(lecture) %>
     </div>
     <% end %>
-    
-    
     <hr>
-    
   <% end %>
-</p>
