@@ -1,6 +1,11 @@
 class LecturesController < InheritedResources::Base
- before_action :authenticate_user!, :except => [:index]
+ before_action :authenticate_user!
  before_action :is_instrucor, only: [:new, :edit , :destroy]
+ 
+  
+  def index
+        redirect_to root_url
+  end
  def down
     my_file = Lecture.find(params[:file]).attachfile.path
     send_file my_file

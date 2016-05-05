@@ -1,21 +1,17 @@
 require 'test_helper'
-
 class LecturesControllerTest < ActionController::TestCase
   setup do
     @lecture = lectures(:one)
   end
-
   test "should get index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:lectures)
   end
-
   test "should get new" do
     get :new
     assert_response :success
   end
-
   test "should create lecture" do
     assert_difference('Lecture.count') do
       post :create, lecture: { attachfile: @lecture.attachfile, content: @lecture.content, course_id: @lecture.course_id, title: @lecture.title }

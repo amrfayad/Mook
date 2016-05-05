@@ -1,20 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <h1>All Courses</h1>
+          <div class="row">
  <% @courses.each do |course| %>
-      <p>
+                     <div class="col-xs-6 col-lg-4">     
+      <h1>
         <%= course.title %>
-      </p>  
+      </h1>  
       <h1>
         <%= link_to image_tag(course.img ,  size: "100x100") ,course  %>
       </h1>
-      <!--<tr>
-        <td><%= course.title %></td>
-        <td><%= image_tag(course.img) %></td>
-        <td><%= course.user %></td>
-        <td><%= link_to 'Show', course %></td>
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>-->
+      
+                     </div>
     <% end %>
+          </div>
 <br>

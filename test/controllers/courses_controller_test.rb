@@ -1,10 +1,8 @@
 require 'test_helper'
-
 class CoursesControllerTest < ActionController::TestCase
   setup do
     @course = courses(:one)
   end
-
   test "should get index" do
     get :index
     assert_response :success
