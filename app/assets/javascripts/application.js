@@ -10,11 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require_tree 
+//= require jquery-1.11.1.min
+//= require jquery.flexisel
+//= require lightbox-plus-jquery.min
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require_tree .
-//= require bootstrap.min
+//= require responsiveslides.min
+//= require bootstrap
 //= require ckeditor/init
-

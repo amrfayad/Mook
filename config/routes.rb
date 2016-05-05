@@ -9,9 +9,7 @@ Rails.application.routes.draw do
   resources :courses
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  get 'pages/index'
-  
-  
+  get 'courses/index'
   #get 'lectures/down'
   get 'lect/:file'  => "lectures#down", as: "dowload"
   
